@@ -13,8 +13,8 @@
 
 <script>
 export default {
-  name: 'HeroSection',
-}
+  name: 'Hero',
+};
 </script>
 
 <style lang="scss" scoped>

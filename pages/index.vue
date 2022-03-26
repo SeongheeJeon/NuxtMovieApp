@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HeroSection />
+    <Hero />
   </div>
 </template>
 
