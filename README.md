@@ -1,6 +1,6 @@
 # NuxtMovieApp
 
-To get data from TMDB, get and set TMDB TMDB_API_KEY at .env on root.
+To get data from TMDB, get and set 'TMDB_API_KEY' at .env on root.
 
 ## Build Setup
 
