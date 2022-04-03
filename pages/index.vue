@@ -16,8 +16,11 @@
       </button>
     </div>
 
+    <!-- Loading -->
+    <Loading v-if="$fetchState.pending" />
+
     <!-- Movies -->
-    <div class="container movies">
+    <div v-else class="container movies">
       <!-- Searched Movies -->
       <div v-if="searchInput !== ''" id="movie-grid" class="movies-grid">
         <div
@@ -117,6 +120,7 @@ export default {
     await this.searchMovies();
     console.log('fetch, searchMovies DONE');
   },
+  fetchDelay: 1000,
   methods: {
     async getMovies() {
       const data = axios.get(
