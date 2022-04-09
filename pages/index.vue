@@ -121,6 +121,12 @@ export default {
     console.log('fetch, searchMovies DONE');
   },
   fetchDelay: 1000,
+  activated() {
+    // Call fetch again if last fetch more than 30 sec ago
+    if (this.$fetchState.timestamp <= Date.now() - 30000) {
+      this.$fetch();
+    }
+  },
   methods: {
     async getMovies() {
       const data = axios.get(
@@ -130,6 +136,7 @@ export default {
       result.data.results.forEach(movie => {
         this.movies.push(movie);
       });
+      console.log('hello');
     },
     async searchMovies() {
       const data = axios.get(
