@@ -46,9 +46,14 @@
 import axios from 'axios';
 export default {
   name: 'IndexPage',
+  head(){
+    return {
+      title: this.movie.title,
+    }
+  },
   data() {
     return {
-      movie: null
+      movie: '',
     }
   },
   async fetch() {
