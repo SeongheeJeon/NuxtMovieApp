@@ -3,7 +3,7 @@
   <div v-else class="container single-movie">
     <NuxtLink class="button" :to="{ name: 'index' }"> Back </NuxtLink>
     <div class="movie-info">
-      <div div class="movie-img">
+      <div class="movie-img">
         <img
           :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
           alt=""
@@ -45,12 +45,8 @@
 <script>
 import axios from 'axios';
 export default {
-  name: 'IndexPage',
-  head(){
-    return {
-      title: this.movie.title,
-    }
-  },
+  name: 'SingleMovie',
+  
   data() {
     return {
       movie: '',
@@ -58,6 +54,17 @@ export default {
   },
   async fetch() {
     await this.getSingleMovie()
+  },
+  activated() {
+    // Call fetch again if last fetch more than 30 sec ago
+    if (this.$fetchState.timestamp <= Date.now() - 3000) {
+      this.$fetch();
+    }
+  },
+  head(){
+    return {
+      title: this.movie.title,
+    }
   },
   fetchDelay: 1000,
   methods: {
@@ -67,7 +74,7 @@ export default {
       )
       const result = await data
       this.movie = result.data
-    },
+  },
   }
 };
 </script>
