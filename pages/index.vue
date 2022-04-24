@@ -53,7 +53,7 @@
             </p>
             <NuxtLink
               class="button button-light"
-              :to="{ name: 'movies-movieid', params: { id: movie.id } }"
+              :to="{ name: 'movies-movieid', params: { movieid: movie.id } }"
             >
               Get More Info
             </NuxtLink>
@@ -89,7 +89,7 @@
             </p>
             <NuxtLink
               class="button button-light"
-              :to="{ name: 'movies-movieid', params: { id: movie.id } }"
+              :to="{ name: 'movies-movieid', params: { movieid: movie.id } }"
             >
               Get More Info
             </NuxtLink>
